@@ -1,4 +1,4 @@
-package com.github.isarang.sb3;
+package com.github.isarang.sb3.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
