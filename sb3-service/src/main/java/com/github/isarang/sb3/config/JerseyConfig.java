@@ -17,10 +17,14 @@ import jakarta.ws.rs.core.Context;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.aot.hint.annotation.RegisterReflectionForBinding;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ApplicationPath("/api")
+@RegisterReflectionForBinding({
+    io.swagger.v3.oas.integration.SwaggerConfiguration.class,
+    java.util.HashSet.class})
 public class JerseyConfig extends ResourceConfig {
 
     public JerseyConfig(@Context ServletConfig servletConfig) {
@@ -59,5 +63,4 @@ public class JerseyConfig extends ResourceConfig {
         register(OpenApiResource.class);
         register(AcceptHeaderOpenApiResource.class);
     }
-
 }
